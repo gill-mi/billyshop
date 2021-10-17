@@ -1,4 +1,4 @@
-package domain;
+package com.example.billyshop.domain;
 
 import lombok.*;
 

@@ -1,7 +1,7 @@
-package dto;
+package com.example.billyshop.dto;
 
 
-import domain.Item;
+import com.example.billyshop.domain.Item;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

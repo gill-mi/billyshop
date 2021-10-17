@@ -1,11 +1,11 @@
-package service;
+package com.example.billyshop.service;
 
-import domain.Item;
-import dto.ItemResponseDto;
-import dto.ItemSaveRequestDto;
+import com.example.billyshop.domain.Item;
+import com.example.billyshop.dto.ItemResponseDto;
+import com.example.billyshop.dto.ItemSaveRequestDto;
+import com.example.billyshop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.ItemRepository;
 
 import java.util.ArrayList;
 import java.util.List;

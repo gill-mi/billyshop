@@ -1,4 +1,4 @@
-package dto;
+package com.example.billyshop.dto;
 
 import lombok.Builder;
 import lombok.Getter;

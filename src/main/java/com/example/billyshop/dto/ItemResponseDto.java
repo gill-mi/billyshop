@@ -1,6 +1,6 @@
-package dto;
+package com.example.billyshop.dto;
 
-import domain.Item;
+import com.example.billyshop.domain.Item;
 import lombok.Getter;
 
 @Getter
