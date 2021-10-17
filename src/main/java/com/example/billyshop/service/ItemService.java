@@ -3,6 +3,7 @@ package com.example.billyshop.service;
 import com.example.billyshop.domain.Item;
 import com.example.billyshop.dto.ItemResponseDto;
 import com.example.billyshop.dto.ItemSaveRequestDto;
+import com.example.billyshop.dto.ItemUpdateRequestDto;
 import com.example.billyshop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,12 @@ public class ItemService {
     public ItemResponseDto findById(Long id){
         Item entity = itemRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시물이 없습니다. id ="+id));
         return new ItemResponseDto(entity);
+    }
+
+    public Long update(Long id, ItemUpdateRequestDto requestDto){
+        Item item = itemRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당게시물이 없습니다. id" +id));
+        item.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getPrice());
+        return id;
     }
 
     public void deleteById(Long id){

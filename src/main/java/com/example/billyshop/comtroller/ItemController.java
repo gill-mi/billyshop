@@ -4,6 +4,7 @@ package com.example.billyshop.comtroller;
 import com.example.billyshop.domain.Item;
 import com.example.billyshop.dto.ItemResponseDto;
 import com.example.billyshop.dto.ItemSaveRequestDto;
+import com.example.billyshop.dto.ItemUpdateRequestDto;
 import com.example.billyshop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,11 @@ public class ItemController {
     public ItemResponseDto findById(@PathVariable Long id){
 
         return itemService.findById(id);
+    }
+
+    @PutMapping("/post/{id}")
+    public Long update(@PathVariable Long id, @RequestBody ItemUpdateRequestDto requestDto){
+        return itemService.update(id,requestDto);
     }
 
     //품명조회
