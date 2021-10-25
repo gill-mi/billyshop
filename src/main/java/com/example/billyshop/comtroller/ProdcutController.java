@@ -17,31 +17,31 @@ public class ProdcutController {
     @Autowired
     private ProductService productService;
 
-    //수정필요
+    //게시글 등록
     @PostMapping("/product/{user_id}")
     public void create(@RequestBody ProductSaveDto saveDto, @PathVariable Long user_id){
         productService.createProduct(saveDto, user_id);
     }
 
-    //완료
+    //전체조회
     @GetMapping("/product")
     public List<Product> findAll(){
         return productService.findAll();
     }
 
-    //i완료
+    //상품아이디로 조회
     @GetMapping("/product/{product_id}")
     public ProductDto getProduct(@PathVariable Long product_id){
         return new ProductDto(productService.findById(product_id));
     }
 
-    //되긴되는 데 입력안한 게 다 0이 됨
+    //게시물수정, 되긴되는 데 입력안한 게 다 0이 됨
     @PutMapping("/product/update/{product_id}")
     public void update(@PathVariable Long product_id, @RequestBody ProductUpdateRequestDto requestDto){
         productService.update(product_id,requestDto);
     }
 
-    //품명조회/완료
+    //품명조회
     @GetMapping("product/title/{title}")
     public List<ProductDto> gettitle(@PathVariable String title){
         {
@@ -49,20 +49,20 @@ public class ProdcutController {
         }
     }
 
-    //내용으로 조회/완료
+    //내용으로 조회
     @GetMapping("/product/content/{content}")
     public List<ProductDto> getcontent(@PathVariable String content){
         return productService.contentSearch(content);
     }
 
 
-    //되긴하네
+    //등록자로 조회
     @GetMapping("/product/user/{user_id}")
     public List<ProductDto> getuser(@PathVariable Long user_id){
         return productService.userSearch(user_id);
     }
 
-    //삭제/완료
+    //삭제
     @DeleteMapping("/{product_id}")
     void deleteItem(@PathVariable Long product_id){
         productService.deleteById(product_id);
