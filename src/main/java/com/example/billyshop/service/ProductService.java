@@ -75,7 +75,7 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당게시물이 없습니다. id" +id));
     }
 
-    //등록자로 하는 거 안됨
+    //등록자
     public List<ProductDto> userSearch(Long user_id){
         User user = userRepository.findById(user_id).orElseThrow(()-> new IllegalArgumentException("해당게시물이 없습니다. id" +user_id));
         List<Product> productList = productRepository.findAllByUser(user);
